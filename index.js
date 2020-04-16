@@ -46,7 +46,7 @@ function mortgageCalculator3() {
     let results = `${name}, your monthly rate is ${monthlyRate}`;
     return results
 }
-// console.log("Task 3", mortgageCalculator3())
+console.log("Task 3", mortgageCalculator3())
 
 // 🏡 Task 4: Arguments and Parameters
 /* Substitute the variables in your functions for parameters such that you can substitute `P`, `I`, and `N` when you call the function.
@@ -65,10 +65,6 @@ function mortgageCalculator4(P, I, N) {
 }
 
 console.log("Task 4", mortgageCalculator4(200000, 0.05, 30))
-
-
-
-
 
 // 🏡 Task 5: Conditionals
 /* Add another paramter to your function called credit score. This parameter will be a number between 0 and 800 (a credit score).
