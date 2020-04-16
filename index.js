@@ -72,8 +72,24 @@ console.log("Task 4", mortgageCalculator4(200000, 0.05, 30))
 Then, add control flow within your function such that IF creditScore is above 740, interest rate drops by 0.5%, if credit score is below 660, interest rate increases by 0.5% and if credit score is anywhere between 660 and 740 interest rate doesn't change.
 */
 
+function mortgageCalculator5(P, I, N, creditScore) {
 
+    if (creditScore > 740) {
+        var I = (I - 0.005);
 
+    } else if (creditScore < 660) {
+        var I = (I + 0.005);
+    } else {
+        var I = I;
+    }
+    let monthlyInterestRate = I / 12;
+    let periods = N * 12;
+    let monthlyRate = P * ((monthlyInterestRate * Math.pow((1 + monthlyInterestRate), periods)) / (Math.pow((1 + monthlyInterestRate), periods) - 1))
+    return monthlyRate = Math.round(monthlyRate * 100) / 100
+    // let creditScore = Math.random() * (800 - 0 + 1) + 0;
+
+}
+console.log("Task 5", mortgageCalculator5(200000, 0.05, 30, 550))
 
 // 🏡 Task 6: Loops
 /* Write a new function called variableInterestRate. This function should be the same as mortgageCalculator, except it should console.log the monthly payment for 10 different interest rates at 0.5% increments plus or minus 2% from the inputted interest rate. Complete these calculations using a for loop.
@@ -91,7 +107,21 @@ For example, variableInterestRate(200000, 0.04, 30) should console.log:
 "{Name}, with an interest rate of 0.06, your monthly rate is $1199"
 */
 
+function variableInterestRate(P, I, N) {
+    I -= 0.02;
+    for (x = I; x < 9; x++) {
 
+        let monthlyInterestRate = I / 12;
+        let periods = N * 12;
+        let monthlyRate = P * ((monthlyInterestRate * Math.pow((1 + monthlyInterestRate), periods)) / (Math.pow((1 + monthlyInterestRate), periods) - 1))
+        monthlyRate = Math.round(monthlyRate * 100) / 100
+        monthlyRate = monthlyRate.toFixed(2);
+        console.log(`${name}, with an interest of ${I.toFixed(2)}, your monthly rate is, $${monthlyRate}`)
+        I = I += 0.005;
+    }
+}
+
+variableInterestRate(200000, 0.04, 30)
 
 
 // 🌟🌟🌟 STRETCH 🌟🌟🌟//
